@@ -6,6 +6,7 @@ import exception.SenhaInvalidaException;
 import model.Usuario;
 
 import java.io.IOException;
+import java.util.List;
 
 public class UsuarioService {
 
@@ -31,6 +32,18 @@ public class UsuarioService {
             );
         }
         return usuarioDao.salvar(usuario);
+    }
+
+    public List<Usuario> read() throws IOException,
+            ClassNotFoundException {
+        return usuarioDao.getObjetos().stream().toList();
+    }
+
+
+
+    public boolean delete(Usuario usuario) throws IOException,
+            ClassNotFoundException {
+        return usuarioDao.deletar(usuario);
     }
 
 }
