@@ -39,7 +39,16 @@ public class UsuarioService {
         return usuarioDao.getObjetos().stream().toList();
     }
 
-
+    public boolean update(Usuario usuario) throws
+            SenhaInvalidaException, IOException,
+            ClassNotFoundException {
+        //TODO: Refatorar para evitar se repetir... DRY
+        if (usuario.getSenha().length() < 8) {
+            throw new SenhaInvalidaException(
+                    "A senha precisa ter pelo menos 8 caracteres");
+        }
+        return usuarioDao.atualizar(usuario);
+    }
 
     public boolean delete(Usuario usuario) throws IOException,
             ClassNotFoundException {
