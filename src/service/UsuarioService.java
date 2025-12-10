@@ -2,6 +2,7 @@ package service;
 
 import dao.GenericDao;
 import exception.EmailDuplicadoException;
+import exception.NomeInvalidoException;
 import exception.SenhaInvalidaException;
 import model.Usuario;
 
@@ -18,10 +19,15 @@ public class UsuarioService {
 
     public boolean create(Usuario usuario) throws
             SenhaInvalidaException, EmailDuplicadoException,
-            IOException, ClassNotFoundException {
+            IOException, ClassNotFoundException,
+            NomeInvalidoException{
         if (usuario.getSenha().length() < 8) {
             throw new SenhaInvalidaException(
                     "A senha precisa ter pelo menos 8 caracteres");
+        }
+        if(usuario.getNome() == null){
+            throw new NomeInvalidoException(
+                    "O nome não pode ser nulo");
         }
         if (usuarioDao.getObjetos()
                 .stream()
@@ -41,11 +47,15 @@ public class UsuarioService {
 
     public boolean update(Usuario usuario) throws
             SenhaInvalidaException, IOException,
-            ClassNotFoundException {
+            ClassNotFoundException, NomeInvalidoException{
         //TODO: Refatorar para evitar se repetir... DRY
         if (usuario.getSenha().length() < 8) {
             throw new SenhaInvalidaException(
                     "A senha precisa ter pelo menos 8 caracteres");
+        }
+        if(usuario.getNome() == null){
+            throw new NomeInvalidoException(
+                    "O nome não pode ser nulo");
         }
         return usuarioDao.atualizar(usuario);
     }

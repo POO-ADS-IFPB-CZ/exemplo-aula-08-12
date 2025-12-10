@@ -1,19 +1,40 @@
 package view;
 
+import exception.EmailDuplicadoException;
+import exception.NomeInvalidoException;
+import exception.SenhaInvalidaException;
+import model.Usuario;
+import service.UsuarioService;
+
 import javax.swing.*;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        //System.out.println("Hello world!");
-        //Ao invés disso, utilizar
-        JOptionPane.showMessageDialog(null,
-                "Hello World");
-//        Scanner scanner = new Scanner(System.in);
-        //Ao invés disso, utilizar
-        String nome = JOptionPane.showInputDialog(null,
-                "Informe seu nome");
+        UsuarioService usuarioService = null;
+        try {
+            usuarioService = new UsuarioService();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
+            usuarioService.create(new Usuario("joao@gmail.com",
+                    "João", "123456"));
+        } catch (SenhaInvalidaException e) {
+            System.out.println(e.getMessage());
+        } catch (EmailDuplicadoException e) {
+
+        } catch (IOException e) {
+
+        } catch (ClassNotFoundException e) {
+
+        } catch (NomeInvalidoException e) {
+
+        }
+
     }
 
 }
