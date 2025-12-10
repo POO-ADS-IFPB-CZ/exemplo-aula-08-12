@@ -6,6 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //TODO: Criar uma aplicação para fazer o CRUD de usuários
         ImageIcon icon = new ImageIcon("imgs/usuario.png");
         String menu[] = {"Criar usuário", "Listar usuários",
         "Editar Usuário", "Excluir usuário"};
