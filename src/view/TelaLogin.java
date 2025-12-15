@@ -6,7 +6,7 @@ public class TelaLogin extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JTextField textField1;
+    private JTextField eMailTextField;
     private JPasswordField passwordField1;
 
     public TelaLogin() {
@@ -16,7 +16,7 @@ public class TelaLogin extends JDialog {
         //Sempre no topo
         setAlwaysOnTop(true);
         //Alterando o tamanho da tela
-        setSize(600,600);
+        setSize(400,200);
         //Abrir no centro da tela
         setLocationRelativeTo(null);
         //Alterando o ícone da tela
