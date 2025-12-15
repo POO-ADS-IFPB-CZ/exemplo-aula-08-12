@@ -16,7 +16,7 @@ public class TelaLogin extends JDialog {
         setModal(true);
         setTitle("Tela de Login");
         //Sempre no topo
-        setAlwaysOnTop(true);
+//        setAlwaysOnTop(true);
         //Alterando o tamanho da tela
         setSize(400,200);
         //Abrir no centro da tela
@@ -31,6 +31,15 @@ public class TelaLogin extends JDialog {
                 TelaCadastroUsuario telaCadastroUsuario =
                         new TelaCadastroUsuario();
                 telaCadastroUsuario.setVisible(true);
+            }
+        });
+        buttonOK.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaPrincipal telaPrincipal = new TelaPrincipal();
+                telaPrincipal.pack();
+                telaPrincipal.setLocationRelativeTo(null);
+                telaPrincipal.setVisible(true);
             }
         });
     }
