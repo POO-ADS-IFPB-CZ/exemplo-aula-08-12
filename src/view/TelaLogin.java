@@ -1,6 +1,8 @@
 package view;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class TelaLogin extends JDialog {
     private JPanel contentPane;
@@ -23,6 +25,14 @@ public class TelaLogin extends JDialog {
         ImageIcon icon = new ImageIcon("src/imgs/cadeado.png");
         setIconImage(icon.getImage());
         getRootPane().setDefaultButton(buttonOK);
+        buttonCancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaCadastroUsuario telaCadastroUsuario =
+                        new TelaCadastroUsuario();
+                telaCadastroUsuario.setVisible(true);
+            }
+        });
     }
 
     public static void main(String[] args) {
