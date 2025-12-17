@@ -1,5 +1,9 @@
 package view;
 
+import exception.EmailDuplicadoException;
+import exception.NomeInvalidoException;
+import exception.SenhaInvalidaException;
+import model.Usuario;
 import service.UsuarioService;
 
 import javax.swing.*;
@@ -33,7 +37,20 @@ public class TelaCadastroUsuario extends JDialog {
         buttonCancel.addActionListener(e -> dispose());
         buttonOK.addActionListener(e->{
             if(validarFormulario()){
+                String email = campoEmail.getText();
+                String nome = campoNome.getText();
+                String senha = campoSenha1.getText();
+                Usuario usuario = new Usuario(email,nome,senha);
 
+                try {
+                    if(usuarioService.create(usuario)){
+                        JOptionPane.showMessageDialog(null,
+                                "Usuário salvo com sucesso");
+                        dispose();
+                    }
+                } catch (Exception ex) {
+                    exibirMensagemErro(ex.getMessage());
+                }
             }
         });
     }
