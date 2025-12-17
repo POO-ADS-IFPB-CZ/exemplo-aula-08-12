@@ -13,6 +13,7 @@ public class TelaPrincipal extends JFrame {
         setContentPane(contentPane);
         setLocationRelativeTo(null);
         getRootPane().setDefaultButton(buttonOK);
+        setTitle("Minha aplicação");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }
