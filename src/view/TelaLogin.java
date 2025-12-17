@@ -53,18 +53,17 @@ public class TelaLogin extends JDialog {
                 if(usuario == null){
                     exibirMensagemErro("Usuário não encontrado");
                 }
-                if(!usuario.getSenha().equals(senha)){
+                else if(!usuario.getSenha().equals(senha)){
                     exibirMensagemErro("Senha incorreta");
+                }else{
+                    TelaPrincipal telaPrincipal = new TelaPrincipal();
+                    telaPrincipal.pack();
+                    telaPrincipal.setLocationRelativeTo(null);
+                    telaPrincipal.setVisible(true);
                 }
             } catch (Exception ex) {
                 exibirMensagemErro(ex.getMessage());
             }
-
-
-            TelaPrincipal telaPrincipal = new TelaPrincipal();
-            telaPrincipal.pack();
-            telaPrincipal.setLocationRelativeTo(null);
-            telaPrincipal.setVisible(true);
         });
     }
 
