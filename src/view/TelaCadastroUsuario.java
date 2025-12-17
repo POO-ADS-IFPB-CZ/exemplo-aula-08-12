@@ -1,8 +1,5 @@
 package view;
 
-import exception.EmailDuplicadoException;
-import exception.NomeInvalidoException;
-import exception.SenhaInvalidaException;
 import model.Usuario;
 import service.UsuarioService;
 

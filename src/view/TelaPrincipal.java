@@ -2,7 +2,7 @@ package view;
 
 import javax.swing.*;
 
-public class TelaPrincipal extends JDialog {
+public class TelaPrincipal extends JFrame {
     private JPanel contentPane;
     private JButton minhaContaButton;
     private JButton produtosButton;
@@ -11,8 +11,8 @@ public class TelaPrincipal extends JDialog {
 
     public TelaPrincipal() {
         setContentPane(contentPane);
-        setModal(true);
         setLocationRelativeTo(null);
         getRootPane().setDefaultButton(buttonOK);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }

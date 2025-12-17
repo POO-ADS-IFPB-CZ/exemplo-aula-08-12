@@ -6,7 +6,7 @@ import service.UsuarioService;
 import javax.swing.*;
 import java.io.IOException;
 
-public class TelaLogin extends JDialog {
+public class TelaLogin extends JFrame {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
@@ -16,6 +16,8 @@ public class TelaLogin extends JDialog {
 
     public TelaLogin() {
 
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
         try {
             usuarioService = new UsuarioService();
         } catch (IOException e) {
@@ -23,7 +25,6 @@ public class TelaLogin extends JDialog {
         }
 
         setContentPane(contentPane);
-        setModal(true);
         setTitle("Tela de Login");
         //Sempre no topo
 //        setAlwaysOnTop(true);
@@ -59,6 +60,7 @@ public class TelaLogin extends JDialog {
                     TelaPrincipal telaPrincipal = new TelaPrincipal();
                     telaPrincipal.pack();
                     telaPrincipal.setLocationRelativeTo(null);
+                    dispose();
                     telaPrincipal.setVisible(true);
                 }
             } catch (Exception ex) {
@@ -78,6 +80,5 @@ public class TelaLogin extends JDialog {
         TelaLogin dialog = new TelaLogin();
 //        dialog.pack();
         dialog.setVisible(true);
-        System.exit(0);
     }
 }
